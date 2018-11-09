@@ -1,18 +1,28 @@
 import os
 import json
 from flask import Flask, render_template, redirect, request, url_for
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+
 
 app = Flask(__name__)
+
+app.config["MONGO_DBNAME"] = 'recipe-book'
+app.config["MONGO_URI"] = 'mongodb://admin:Jagger198!@ds121182.mlab.com:21182/recipe-book'
+
+mongo = PyMongo(app)
 
 
 """
 Routing for Index.html
 """
 
-
 @app.route('/')
+@app.route('/index')
 def index():
-    return "Hello World.....again"
+    return render_template("index.html", 
+    categories=mongo.db.categories.find())
+
 
 
 if __name__ == '__main__':
