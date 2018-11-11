@@ -7,7 +7,9 @@ One or two paragraphs providing an overview of your project.
 Essentially, this part is your sales pitch.
  
 ## UX
- 
+
+![database_schema](https://user-images.githubusercontent.com/28737216/48314730-5f994b80-e5c5-11e8-9d8f-1f68f6d6f451.png)
+
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
