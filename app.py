@@ -21,7 +21,7 @@ Routing for Index.html
 @app.route('/index')
 def index():
     return render_template("index.html", 
-    categories=mongo.db.categories.find())
+    categories=mongo.db.categories.find().sort("category",1))
 
 
 
