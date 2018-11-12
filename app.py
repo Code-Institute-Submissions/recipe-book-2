@@ -18,11 +18,14 @@ Routing for Index.html
 """
 
 @app.route('/')
-@app.route('/index')
 def index():
-    return render_template("index.html", 
-    categories=mongo.db.categories.find().sort("category",1))
+    return render_template("index.html")
 
+
+@app.route('/recipes')
+def recipes():
+    return render_template("recipes.html", 
+    categories=mongo.db.categories.find().sort("category",1), recipes=mongo.db.recipes.find(), cuisines=mongo.db.cuisines.find().sort("cuisine",1))
 
 
 if __name__ == '__main__':

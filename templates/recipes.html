@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+            <h1>Test 1 - Catorgies Collections</h1>
+            {% for category in categories %}
+            <li>{{ category.category }}</li>
+            {% endfor %}
+            <h1>Test 2 - Cuisines Collections</h1>
+            {% for cuisine in cuisines %}
+            <li>{{ cuisine.cuisine}}</li>
+            {% endfor %}
+            <h1>Test 3 - Recipes Collection</h1>
+            {% for recipe in recipes %}
+            <p><strong>Description:</strong> {{ recipe.description }}</p>
+            <p><strong>Category:</strong> {{ recipe.category }}</p>
+            <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+            <p><strong>Prep Time:</strong> {{ recipe.prep_time }}</p>
+            <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }}</p>
+            <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+            <p><strong>Method:</strong> {{ recipe.method }}</p>
+            {% endfor %}
+        </body>
+    </head>
+</html>
