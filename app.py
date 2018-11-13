@@ -25,7 +25,7 @@ def index():
 @app.route('/recipes')
 def recipes():
     return render_template("recipes.html", 
-    categories=mongo.db.categories.find().sort("category",1), recipes=mongo.db.recipes.find(), cuisines=mongo.db.cuisines.find().sort("cuisine",1))
+    categories=mongo.db.categories.find().sort("category",1), recipes=mongo.db.recipes.find(), ingredients=mongo.db.recipes.ingredients.find(), cuisines=mongo.db.cuisines.find().sort("cuisine",1))
 
 
 if __name__ == '__main__':
