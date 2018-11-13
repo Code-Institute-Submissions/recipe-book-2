@@ -20,11 +20,13 @@
                 <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
                 <p><strong>Prep Time:</strong> {{ recipe.prep_time }}</p>
                 <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }}</p>
-                <p><strong>Ingredients:</strong> 
-                {% for ing in ingredients %}
-                {{ ing }}
-                {% endfor %}</p>
-                <p><strong>Method:</strong> {{ recipe.method }}</p></p>
+                <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                <p><strong>Ingredients:</strong> {{ recipe.ingredients.values() }}</p>
+                <p><strong>Ingredients:</strong></p>
+                <li>{{ recipe.ingredients.ing1 }}</li>
+                <li>{{ recipe.ingredients.ing2 }}</li>
+                <li>{{ recipe.ingredients.ing3 }}</li>
+                <p><strong>Method:</strong> {{ recipe.method.values() }}</p>
                 <p><strong>Rating:</strong> {{ recipe.rating }}</p></p>
             </div>
         </div>
