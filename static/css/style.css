@@ -64,3 +64,10 @@ footer.page-footer {
 .white{
   height:90px;
 }
+
+.card .card-image img {
+  opacity:0.8;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}

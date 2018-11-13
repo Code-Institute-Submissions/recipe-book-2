@@ -11,8 +11,9 @@
   <link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="white" role="navigation">
-      <a id="logo-container" href="index.html" class="brand-logo"><img style="height:80px; padding:10px" src="static/img/brand_logo.png" alt="Brand Logo"></a>
+      <a id="logo-container" href="{{ url_for('index') }}" class="brand-logo"><img style="height:80px; padding:10px" src="static/img/brand_logo.png" alt="Brand Logo"></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
       </ul>
@@ -23,10 +24,12 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+  
 
   {% block content %}
   {% endblock %}
 
+  <!-- Footer -->
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">

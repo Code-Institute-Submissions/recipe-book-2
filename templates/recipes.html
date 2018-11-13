@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<div class="container-fluid">
+        <h1 class="header center teal-text text-lighten-2">List Of Recipes</h1>
+        <div class="row center">
+          <h5 class="header col s12 dark">Select an image to see a brief description, or click the link to see the full recipe details</h5>
+        </div>
+</div>
     
 </div class="container">
     <div class="row">
@@ -7,7 +14,7 @@
       <div class="col s4">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="static/img/lebanese/manousheh.jpg" alt="manousheh">
+              <img class="activator" src={{ recipe.image }} alt="manousheh">
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{ recipe.description }}<i class="material-icons right">more_vert</i></span>
@@ -28,6 +35,9 @@
                 <li>{{ recipe.ingredients.ing3 }}</li>
                 <p><strong>Method:</strong> {{ recipe.method.values() }}</p>
                 <p><strong>Rating:</strong> {{ recipe.rating }}</p></p>
+                {% for i in recipe.ingredients %}
+                <li>{{ i["ing_name"] }}</li>
+                {% endfor %}
             </div>
         </div>
       </div>
