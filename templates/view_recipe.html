@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+  <a id="logo-container" href="{{ url_for('index') }}" class="brand-logo"><img style="height:80px; padding:10px" src="static/img/brand_logo.png" alt="Brand Logo"></a>
+        <h1 class="header center teal-text text-lighten-2">Recipe For:</h1>
+        <div class="row center">
+          <h5 class="header col s12 dark">{{ recipe.description }}</h5>
+        </div>
+</div>
+    
+                <p><strong>Category:</strong> {{ recipe.category }}</p>
+                <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+                <p><strong>Prep Time:</strong> {{ recipe.prep_time }}</p>
+                <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }}</p>
+                <p><strong>Ingredients(test1):</strong> {{ recipe.ingredients }}</p>
+                <p><strong>Ingredients(test2):</strong> {{ recipe.ingredients.values() }}</p>
+                <p><strong>Ingredients(test3):</strong></p>
+                <li>{{ recipe.ingredients.ing1 }}</li>
+                <li>{{ recipe.ingredients.ing2 }}</li>
+                <li>{{ recipe.ingredients.ing3 }}</li>
+                
+                <p><strong>Ingredients(test4):</strong></p>
+                <ul>{{ recipe.ingredients.ing1 }}</ul>
+                <ul>{{ recipe.ingredients.ing2 }}</ul>
+                <ul>{{ recipe.ingredients.ing3 }}</ul>
+                <p><strong>Method:</strong> {{ recipe.method.values() }}</p>
+                <p><strong>Rating:</strong> {{ recipe.rating }}</p></p>
+            </div>
+        </div>
+      </div>
+      </div>
+   
+{% endblock %}
+
