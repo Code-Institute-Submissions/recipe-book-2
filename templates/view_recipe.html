@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m12 l6">                  
-                <img src={{ recipe.image }} alt="{{ recipe.description }}" id="recipe_css_image">
+                <img class="responsive-img" src={{ recipe.image }} alt="{{ recipe.description }}" id="recipe_css_image">
     </div>            
     <div class="col s12 m6">
                 <blockquote><strong>Category:</strong> {{ recipe.category }}</blockquote>
@@ -21,8 +21,14 @@
   </div>  
       
       <div class="row">
-        <div class="col s12 m12 l6">
-                <blockquote><strong>Ingredients(test1):</strong> {{ recipe.ingredients }}</blockquote> 
+    <div class="col s12 m12 l12">
+      <ul class="tabs">
+        <li class="tab col s6 m6 l6"><a href="#tab1">Ingredients</a></li>
+        <li class="tab col s6 m6 l6"><a class="active" href="#tab2">Method</a></li>
+      </ul>
+    </div>
+    <div id="tab1" class="col s12">
+      <blockquote><strong>Ingredients(test1):</strong> {{ recipe.ingredients }}</blockquote> 
                 <p><strong>Ingredients(test2):</strong> {{ recipe.ingredients.values() }}</blockquote>
                 <p><strong>Ingredients(test3):</strong></p>
                 <li>{{ recipe.ingredients.ing1 }}</li>
@@ -38,9 +44,13 @@
                 <ul>{{ recipe.ingredients.ing1 }}</ul>
                 <ul>{{ recipe.ingredients.ing2 }}</ul>
                 <ul>{{ recipe.ingredients.ing3 }}</ul>
-                <p><strong>Method:</strong> {{ recipe.method.values() }}</p>
-          </div>      
-      </div>        
+        </div>
+    <div id="tab2" class="col s12"><p><strong>Method:</strong> {{ recipe.method.values() }}</p>
+    </div>
+  </div>
+      
+      
+                
   </div>
   
 {% endblock %}

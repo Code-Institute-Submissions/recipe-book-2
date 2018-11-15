@@ -89,5 +89,30 @@ blockquote{
   /* Adjust these values accordingly */
   top: 7px;
   right: 6px;
-  color: teal;
+  color: #26a69a;;
 }
+
+.tabs .tab a {
+    color: #26a69a;
+    background-color: transparent;
+} /*colour of text*/
+    
+.tabs .tab a.active {
+    background-color: transparent;
+    color: #26a69a;
+} /*Background and text color when a tab is active*/
+
+.tabs .tab a:hover {
+    background-color: transparent;
+    color: #26a69a;
+} /*Background and text color on hover*/
+
+.tabs .tab .indicator:focus {
+    background-color: transparent;
+    color: #26a69a;
+} /*Background and text color on hover*/
+
+.tabs .indicator {
+    background-color: #26a69a;
+} /*Color of underline*/
+

@@ -31,7 +31,7 @@ def recipes():
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
     this_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=this_recipe)
+    return render_template("view_recipe.html", recipe=this_recipe, brandlogo=mongo.db.brandlogo.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
