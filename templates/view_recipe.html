@@ -18,7 +18,7 @@
                 <i id="rating_icon" class="material-icons">stars</i>
                 <strong>Rating:</strong> {{ recipe.rating }}
     </div>
-  </div>  
+  </div><br><br>  
       
       <div class="row">
     <div class="col s12 m12 l12">
@@ -28,24 +28,18 @@
       </ul>
     </div>
     <div id="tab1" class="col s12">
-      <blockquote><strong>Ingredients(test1):</strong> {{ recipe.ingredients }}</blockquote> 
-                <p><strong>Ingredients(test2):</strong> {{ recipe.ingredients.values() }}</blockquote>
-                <p><strong>Ingredients(test3):</strong></p>
-                <li>{{ recipe.ingredients.ing1 }}</li>
-                <li>{{ recipe.ingredients.ing2 }}</li>
-                <li>{{ recipe.ingredients.ing3 }}</li>
+      <blockquote><strong>Ingredients:</strong></blockquote> 
                 
-                <p><strong>Ingredients(test4):</strong>
-                {% for ing in ingredients %}
-                {{ ing }}	                
+                {% for i in recipe.ingredients %}
+                <li>{{ i["ing_name"] }}</li>                
                 {% endfor %}</p>
                 
-                <p><strong>Ingredients(test5):</strong></p>
-                <ul>{{ recipe.ingredients.ing1 }}</ul>
-                <ul>{{ recipe.ingredients.ing2 }}</ul>
-                <ul>{{ recipe.ingredients.ing3 }}</ul>
         </div>
-    <div id="tab2" class="col s12"><p><strong>Method:</strong> {{ recipe.method.values() }}</p>
+    <div id="tab2" class="col s12">
+      <blockquote><strong>Method:</strong></blockquote>
+                {% for i in recipe.method %}
+                <li>{{ i["step_name"] }}</li>                
+                {% endfor %}</p>
     </div>
   </div>
       

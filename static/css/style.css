@@ -100,14 +100,10 @@ blockquote{
 .tabs .tab a.active {
     background-color: transparent;
     color: #26a69a;
+    outline: none;
 } /*Background and text color when a tab is active*/
 
 .tabs .tab a:hover {
-    background-color: transparent;
-    color: #26a69a;
-} /*Background and text color on hover*/
-
-.tabs .tab .indicator:focus {
     background-color: transparent;
     color: #26a69a;
 } /*Background and text color on hover*/
