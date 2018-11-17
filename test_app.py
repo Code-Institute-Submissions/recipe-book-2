@@ -25,13 +25,35 @@ def index():
 @app.route('/recipes')
 def recipes():
     return render_template("recipes.html", 
-    categories=mongo.db.categories.find().sort("category",1), recipes=mongo.db.recipes.find(), cuisines=mongo.db.cuisines.find().sort("cuisine",1))
+    recipes=mongo.db.recipes.find())
 
 
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
     this_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=this_recipe, brandlogo=mongo.db.brandlogo.find())
+    return render_template("view_recipe.html", recipe=this_recipe)
+
+
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    this_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("view_recipe.html", recipe=this_recipe)
+    
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("add_recipe.html",
+    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1))
+
+
+"""
+Data Functions
+"""
+
+@app.route('/insert_task', methods=['POST'])
+def insert_task():
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('recipes'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

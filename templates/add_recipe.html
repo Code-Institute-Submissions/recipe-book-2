@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+        <h1 class="header center teal-text text-lighten-2">Add A New Recipe</h1>
+        <div class="row center">
+          <h5 class="header col s12 dark">Complete to below form details and hit the 'Submit' button - simple!</h5>
+        </div>
+</div>
+    
+<div class="container">
+
+<div class="row">
+    <form action="{{ url_for('insert_task') }}" method="POST" class="col s12">
+      
+      <div class="row">
+         
+         <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="category" name="category">
+            <option value="" disabled selected>Choose A Category</option>
+            {% for category in categories %}
+            <option value="{{ category.category }}">{{ category.category }}</option>
+            {% endfor %}
+          </select>
+        <label>Category</label>
+        </div>
+        
+        <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="cuisine" name="cuisine">
+            <option value="" disabled selected>Choose A Cuisine Type</option>
+            {% for cuisine in cuisines %}
+            <option value="{{ cuisine.cuisine }}">{{ cuisine.cuisine }}</option>
+            {% endfor %}
+          </select>
+        <label>Cuisine</label>
+        </div>
+        
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">description</i>
+          <input id="description" name="description" type="text" class="validate">
+          <label for="description">Recipe Name</label>
+        </div>
+        <div class="input-field col s6 m6 l6">
+          <i class="material-icons prefix">image</i>
+          <input id="image" name="image" type="text" placeholder="Paste an image address/url into this area" class="validate">
+          <label for="image">Recipe Image URL</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s6 m6 l6">
+          <i class="material-icons prefix">timer</i><br><br>
+          <p class="range-field">
+          <input type="range" id="prep_time" name="prep_time" min="0" max="120" />
+          </p>
+          <label for="prep_time">Prepearation Time (mins)</label>
+        </div>
+        <div class="input-field col s6 m6 l6">
+          <i class="material-icons prefix">timer</i><br><br>
+          <p class="range-field">
+          <input type="range" id="cooking_time" name="cooking_time" min="0" max="600" />
+          </p>
+          <label for="cooking_time">Cooking Time (mins)</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s6 m6 l6">
+          <i class="material-icons prefix">today</i>
+          <input id="data_added" name="date_added" type="text" class="datepicker">
+          <label for="date_added">Date Added (today)</label>
+        </div>
+        <div class="input-field col s6 m6 l6">
+          <i class="material-icons prefix">description</i>
+          <input id="name" name="name" type="text" class="validate">
+          <label for="name">Recipe Name</label>
+        </div>
+      </div>
+      
+      <button class="btn waves-effect waves-light" type="submit" name="action">Add Recipe
+      <i class="material-icons right">playlist_add</i>
+      </button>
+    </form>
+  </div>
+
+    
+</div>
+   
+{% endblock %}
+

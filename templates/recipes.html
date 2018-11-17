@@ -1,12 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
 <div class="container-fluid">
         <h1 class="header center teal-text text-lighten-2">List Of Recipes</h1>
         <div class="row center">
-          <h5 class="header col s12 dark">Select an image to see a brief description, or click the link to see the full recipe details</h5>
+          <h5 class="header col s12 dark">Select an image to see a brief description, or click the link to see the full recipe details</h5><br><br><br><br>
+          <div class="row center">
+          <a href="{{ url_for('add_recipe') }}" class="btn-floating tooltipped data-position="bottom" data-tooltip="Add your own recipe" btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>
+          </div>    
         </div>
 </div>
+
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col s12 m6 offset-m4 l4 offset-l4">
+       <div class="searchbox">
+        <input type="text" class="searchbox" placeholder="What are you looking for?">
+          <button type="submit" class="searchbutton">
+          <i class="fa fa-search"></i>
+          </button>
+       </div>
+    </div>
+  </div>
+</div>
+<br>
     
 </div class="container">
     <div class="row">
