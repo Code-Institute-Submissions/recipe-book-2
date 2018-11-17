@@ -20,14 +20,13 @@ This website is for a range of people, from those who are looking for quick and 
 
 ### Data Schema:
 
+This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+
 ![database_schema](https://user-images.githubusercontent.com/28737216/48314730-5f994b80-e5c5-11e8-9d8f-1f68f6d6f451.png)
 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+### Wireframes / Mockups:
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+Still to be inserted
 
 ## Features
 
@@ -44,12 +43,25 @@ In addition, you may also use this section to discuss plans for additional featu
 ### Features Left to Implement
 - Another feature idea
 
-## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+## Technologies used
 
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+Technologies used in this project include:
+
+* Materialize: Materializecss was used for a basic HTML templates and styling.
+* HTML5/CSS: Used for the layout and styling of the application.
+* Python 3.4.3: The back end functionality of the application was written entirely in python 3.0.
+  Was originally running on Python 2, following code was executed to upgrade:
+  ~~~~
+  jagger81:~/workspace (master) $ sudo mv /usr/bin/python /usr/bin/python2
+  jagger81:~/workspace (master) $ sudo ln -s /usr/bin/python3 /usr/bin/python
+  jagger81:~/workspace (master) $ python --version
+  Python 3.4.3
+  ~~~~
+* Flask Microframework: Flask was used to extend pythons functionality to the frond end.
+* Balsamiq: Used to create the below wireframes.
+* Cloud9 IDE used as development environment workspace
+* The project uses **JQuery** to simplify DOM manipulation.
 
 
 ## Testing
