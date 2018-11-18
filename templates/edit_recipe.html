@@ -2,51 +2,122 @@
 {% block content %}
 
 <div class="container-fluid">
-        <h1 class="header center teal-text text-lighten-2">List Of Recipes</h1>
+        <h1 class="header center teal-text text-lighten-2">Edit Recipe</h1>
         <div class="row center">
-          <h5 class="header col s12 dark">Select an image to see a brief description, or click the link to see the full recipe details</h5>
+          <h5 class="header col s12 dark">Edit recipe details below and hit the button 'Submit Changes'</h5><br>
         </div>
 </div>
-    
-</div class="container">
-    <div class="row">
-    {% for recipe in recipes %}
-      <div class="col s4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src={{ recipe.image }} alt="manousheh">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{ recipe.description }}<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">{{ recipe.description }}<i class="material-icons right">close</i></span>
-                <p><strong>Category:</strong> {{ recipe.category }}</p>
-                <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
-                <p><strong>Prep Time:</strong> {{ recipe.prep_time }}</p>
-                <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }}</p>
-                <p><strong>Ingredients(test1):</strong> {{ recipe.ingredients }}</p>
-                <p><strong>Ingredients(test2):</strong> {{ recipe.ingredients.values() }}</p>
-                <p><strong>Ingredients(test3):</strong></p>
-                <li>{{ recipe.ingredients.ing1 }}</li>
-                <li>{{ recipe.ingredients.ing2 }}</li>
-                <li>{{ recipe.ingredients.ing3 }}</li>
-                <p><strong>Ingredients(test4):</strong></p>
-                {% for i in recipe.ingredients.items() %}
-                <li>{{ i["ing_name"] }}</li>
-                {% endfor %}
-                <p><strong>Ingredients(test5):</strong></p>
-                <ul>{{ recipe.ingredients.ing1 }}</ul>
-                <ul>{{ recipe.ingredients.ing2 }}</ul>
-                <ul>{{ recipe.ingredients.ing3 }}</ul>
-                <p><strong>Method:</strong> {{ recipe.method.values() }}</p>
-                <p><strong>Rating:</strong> {{ recipe.rating }}</p></p>
-            </div>
+
+<div class="container">
+  <ul class="collapsible">
+    <li>
+    <div class="collapsible-header"><i class="material-icons">info</i>Instructions For Pasting Image Links</div>
+    <div class="collapsible-body"><span>To paste a URL for an image and commit this to the database, simply find the image you want via google or directly from a webpage and then: Right click on the image and select the option 'copy image addess':</span><p><a><img class="responsive-img" src={{url_for ('static', filename='img/image_address.png') }} alt="Copy Image Address"></a></p></div>
+    </li>
+  </ul>
+</div><br><br>
+
+<div class="container">
+        <h5 class="header center teal-text text-lighten-2">Current Image Used For This Recipe:</h5><br>
+        <div class="row center">
+        <img id="current_image" class="activator responsive-img" src={{ recipe.image }} alt="{{ recipe.description }}">
+        </div>
+</div><br><br>
+
+<div class="container-fluid">
+        <h3 class="header center teal-text text-lighten-2">{{ recipe.description }}</h3>
+</div><br><br>
+
+<div class="container">
+
+<div class="row">
+    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
+      
+      <div class="row">
+         
+         <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="category" name="category">
+            <option value="" disabled selected>Choose A Category</option>
+            {% for category in categories %}
+                {% if category.category == recipe.category %} 
+                <option value="{{ category.category }}" selected>{{ category.category }}</option>
+                {% else %}
+                <option value="{{ category.category }}">{{ category.category }}</option>
+                {% endif %}            
+            {% endfor %}
+          </select>
+        <label>Category</label>
+        </div>
+        
+        <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="cuisine" name="cuisine">
+            <option value="" disabled selected>Choose A Cuisine Type</option>
+            {% for cuisine in cuisines %}
+            {% if cuisine.cuisine == recipe.cuisine %} 
+                <option value="{{ cuisine.cuisine }}" selected>{{ cuisine.cuisine }}</option>
+                {% else %}
+                <option value="{{ cuisine.cuisine }}">{{ cuisine.cuisine }}</option>
+                {% endif %}            
+            {% endfor %}
+          </select>
+        <label>Cuisine</label>
+        </div>
+        
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">description</i>
+          <input id="description" name="description" type="text" class="validate" value="{{ recipe.description }}">
+          <label for="description">Recipe Name</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">image</i>
+          <input id="image" name="image" type="text" class="validate" value="{{ recipe.image }}">
+          <span class="helper-text" data-error="Try again" data-success="Done">Paste an image address/url into this field</span>
+          <label for="image">Recipe Image URL</label>
         </div>
       </div>
-    {% endfor %}
+      
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">timer</i><br><br>
+          <p class="range-field">
+          <input type="range" id="prep_time" name="prep_time" min="0" max="120" />
+          </p>
+          <label for="prep_time">Prepearation Time (mins)</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">timer</i><br><br>
+          <p class="range-field">
+          <input type="range" id="cooking_time" name="cooking_time" min="0" max="600" />
+          </p>
+          <label for="cooking_time">Cooking Time (mins)</label>
+        </div>
       </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">today</i>
+          <input id="data_added" name="date_added" type="text" class="datepicker">
+          <label for="date_added">Date Added (today)</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">description</i>
+          <input id="name" name="name" type="text" class="validate">
+          <label for="name">Recipe Name</label>
+        </div>
+      </div>
+      
+      <button class="btn waves-effect waves-light pulse" type="submit" name="action">Submit Changes
+      <i class="material-icons right">playlist_add</i>
+      </button>
+    </form>
+  </div>
+
+    
+</div>
    
 {% endblock %}
-

@@ -37,7 +37,8 @@ def view_recipe(recipe_id):
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     this_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=this_recipe)
+    return render_template("edit_recipe.html", recipe=this_recipe, categories=mongo.db.categories.find(),cuisines=mongo.db.cuisines.find())
+
     
 @app.route('/add_recipe')
 def add_recipe():
@@ -49,8 +50,8 @@ def add_recipe():
 Data Functions
 """
 
-@app.route('/insert_task', methods=['POST'])
-def insert_task():
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('recipes'))
