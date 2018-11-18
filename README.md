@@ -26,7 +26,27 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ### Wireframes / Mockups:
 
-Still to be inserted
+The following are the initial mockups, based on the Materialize *Parallax* template that was used:
+
+#### Index / Landing Page:
+
+![recipe_main](https://user-images.githubusercontent.com/28737216/48676633-5417c880-eb61-11e8-9e9d-f11b0035ef79.png)
+
+#### Recipes Page:
+
+![recipes_cards](https://user-images.githubusercontent.com/28737216/48676660-b1ac1500-eb61-11e8-8573-a557f7a01067.png)
+
+#### View Recipe Page <recipe_id>:
+
+![view_recipe](https://user-images.githubusercontent.com/28737216/48676664-be306d80-eb61-11e8-9cbe-6a98c486bb2b.png)
+
+#### Edit Recipe Page <recipe_id>:
+
+![edit_recipe](https://user-images.githubusercontent.com/28737216/48676667-c688a880-eb61-11e8-84c9-c65730569f31.png)
+
+#### Add/Insert Recipe Page:
+
+![add_recipe](https://user-images.githubusercontent.com/28737216/48676670-cdafb680-eb61-11e8-978f-b9be04cd847d.png)
 
 ## Features
 
