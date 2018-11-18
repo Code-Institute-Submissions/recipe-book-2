@@ -133,4 +133,4 @@ In addition, you can clone or download the code from this GitHub repository.
 
 ### Acknowledgements
 
-- I received inspiration for this project from https://myfoodbook.com.au/recipes/categories
+- I received inspiration for this project from https://myfoodbook.com.au and https://www.bbcgoodfood.com
