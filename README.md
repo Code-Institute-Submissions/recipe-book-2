@@ -129,7 +129,7 @@ In addition, you can clone or download the code from this GitHub repository.
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
 ### Media
-- The photos used in this site were obtained from ...
+- The photos used for the recipes were sourced from https://www.bbcgoodfood.com
 
 ### Acknowledgements
 
