@@ -37,13 +37,16 @@ def view_recipe(recipe_id):
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     this_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("edit_recipe.html", recipe=this_recipe, categories=mongo.db.categories.find(),cuisines=mongo.db.cuisines.find())
+    return render_template("edit_recipe.html", recipe=this_recipe,
+    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1),
+    difficulty=mongo.db.levels.find().sort("level",1),serves=mongo.db.serves.find().sort("level",1),main_ing=mongo.db.main_ing.find().sort("level",1))
 
     
 @app.route('/add_recipe')
 def add_recipe():
     return render_template("add_recipe.html",
-    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1))
+    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1),
+    difficulty=mongo.db.levels.find().sort("level",1),serves=mongo.db.serves.find().sort("level",1),main_ing=mongo.db.main_ing.find().sort("level",1))
 
 
 """
@@ -55,6 +58,26 @@ def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('recipes'))
+    
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        'name':request.form.get['name'],
+        'image':request.form.get['image'],
+        'description':request.form.get['description'],
+        'category': request.form.get['category'],
+        'cuisine': request.form.get['cuisine'],
+        'prep_time':request.form.get['prep_time'],
+        'cooking_time':request.form.get['cooking_time'],
+        'main_ing':request.form.get['main_ing'],
+        'serves':request.form.get['serves'],
+        'rating':request.form.get['rating'],
+        'date_added':request.form.get['date_added'],
+        'added_by':request.form.get['added_by']
+    })
+    return redirect(url_for('view_recipe'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

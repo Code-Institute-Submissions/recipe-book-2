@@ -2,7 +2,8 @@
 {% block content %}
 
 <div class="container-fluid">
-        <h3 class="header center teal-text text-lighten-2">{{ recipe.description }}</h3>
+        <h3 class="header center teal-text text-lighten-2">{{ recipe.name }}</h3><br>
+        <h5 class="header center black-text text-lighten-2">{{ recipe.description }}</h5>
 </div><br><br>
 
 <div class="row center">
@@ -12,40 +13,76 @@
 
 <div class="container">
   <div class="row">
-    <div class="col s12 m12 l6">                  
-                <img class="responsive-img" src={{ recipe.image }} alt="{{ recipe.description }}" id="recipe_css_image">
-    </div>            
-    <div class="col s12 m6">
+    
+    <div class="col s12 m6 l6">                  
+                <img class="responsive-img" src={{ recipe.image }} alt="{{ recipe.name }}" id="recipe_css_image">
+    </div><br>
+    
+    <div class="col s12 offset-s3 m6 offset-m4 l6">
                 <blockquote><strong>Category:</strong> {{ recipe.category }}</blockquote>
                 <blockquote><strong>Cuisine:</strong> {{ recipe.cuisine }}</blockquote>
                 <blockquote><strong>Prep Time:</strong> {{ recipe.prep_time }}</blockquote>
                 <blockquote><strong>Cooking Time:</strong> {{ recipe.cooking_time }}</blockquote>
                 <i id="rating_icon" class="material-icons">stars</i>
-                <strong>Rating:</strong> {{ recipe.rating }}
+                <strong>Rating:</strong> {{ recipe.rating }}<br><br>
+                <strong>Main Ingredient:</strong><span class="uppercase">&nbsp;{{ recipe.main_ing }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <strong>Serves:</strong> {{ recipe.serves }}
+                
     </div>
   </div><br><br>  
       
-      <div class="row">
+  <div class="row">
     <div class="col s12 m12 l12">
       <ul class="tabs">
         <li class="tab col s6 m6 l6"><a href="#tab1">Ingredients</a></li>
         <li class="tab col s6 m6 l6"><a class="active" href="#tab2">Method</a></li>
       </ul>
     </div>
+    
     <div id="tab1" class="col s12">
       <blockquote><strong>Ingredients:</strong></blockquote> 
                 
-                {% for i in recipe.ingredients %}
-                <li>{{ i["ing_name"] }}</li>                
-                {% endfor %}</p>
+                <table>
+                  <thead>
+                   
+                    <tr id="table_border">
+                      <th>Ingredient Name</th>
+                      <th>Measure</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                     {% for i in recipe.ingredients %}
+                    <tr id="table_border">
+                      <td>{{ i["ing_name"] }}</td>
+                      <td>{{ i["measure"] }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>              
+                
                 
         </div>
     <div id="tab2" class="col s12">
       <blockquote><strong>Method:</strong></blockquote>
                 {% for i in recipe.method %}
-                <li>{{ i["step_name"] }}</li>                
+                <table class="striped">
+                  <thead>
+                    <tr>
+                      <th></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td><li>{{ i["step"] }}</li></td>
+                    </tr>
+                  </tbody>
+                </table>                              
                 {% endfor %}</p>
+      
     </div>
+    
   </div>
       
       

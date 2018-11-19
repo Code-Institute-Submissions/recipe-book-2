@@ -24,14 +24,18 @@
         </div>
 </div><br><br>
 
-<div class="container-fluid">
-        <h3 class="header center teal-text text-lighten-2">{{ recipe.description }}</h3>
-</div><br><br>
-
 <div class="container">
 
 <div class="row">
-    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">sort</i>
+          <input id="description" name="description" type="text" class="validate" value="{{ recipe.description }}">
+          <label for="name">Recipe Description</label>
+        </div>
+      </div>
       
       <div class="row">
          
@@ -64,14 +68,47 @@
           </select>
         <label>Cuisine</label>
         </div>
+      </div>
+      
+      <div class="row">
+         
+         <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="category" name="category">
+            <option value="" disabled selected>Choose A Main Ingredient</option>
+            {% for main_ing in main_ing %}
+                {% if main_ing.main_ing == recipe.main_ing %} 
+                <option value="{{ main_ing.main_ing }}" selected>{{ main_ing.main_ing }}</option>
+                {% else %}
+                <option value="{{ main_ing.main_ing }}">{{ main_ing.main_ing }}</option>
+                {% endif %}            
+            {% endfor %}
+          </select>
+        <label>Main Ingredient</label>
+        </div>
+        
+        <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="cuisine" name="cuisine">
+            <option value="" disabled selected>Choose How Many This Meal Serves</option>
+            {% for serves in serves %}
+            {% if serves.serves == recipe.serves %} 
+                <option value="{{ serves.serves }}" selected>{{ serves.serves }}</option>
+                {% else %}
+                <option value="{{ serves.serves }}">{{ serves.serves }}</option>
+                {% endif %}            
+            {% endfor %}
+          </select>
+        <label>Serves</label>
+        </div>
         
       </div>
       
       <div class="row">
         <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">description</i>
-          <input id="description" name="description" type="text" class="validate" value="{{ recipe.description }}">
-          <label for="description">Recipe Name</label>
+          <i class="material-icons prefix">sort</i>
+          <input id="name" name="name" type="text" class="validate" value="{{ recipe.name }}">
+          <label for="name">Recipe Name</label>
         </div>
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">image</i>
@@ -85,14 +122,14 @@
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">timer</i><br><br>
           <p class="range-field">
-          <input type="range" id="prep_time" name="prep_time" min="0" max="120" />
+          <input type="range" id="prep_time" name="prep_time" value="{{ recipe.prep_time }}" min="0" max="120" />
           </p>
           <label for="prep_time">Prepearation Time (mins)</label>
         </div>
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">timer</i><br><br>
           <p class="range-field">
-          <input type="range" id="cooking_time" name="cooking_time" min="0" max="600" />
+          <input type="range" id="cooking_time" name="cooking_time" value="{{ recipe.cooking_time }}" min="0" max="600" />
           </p>
           <label for="cooking_time">Cooking Time (mins)</label>
         </div>
@@ -105,9 +142,9 @@
           <label for="date_added">Date Added (today)</label>
         </div>
         <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">description</i>
-          <input id="name" name="name" type="text" class="validate">
-          <label for="name">Recipe Name</label>
+          <i class="material-icons prefix">account_circle</i>
+          <input id="added_by" name="added_by" type="text" class="validate">
+          <label for="name">Added By</label>
         </div>
       </div>
       

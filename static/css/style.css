@@ -78,10 +78,12 @@ blockquote{
 
 #recipe_css_image{
  border-radius: 10%;
- margin-left: 80px;
  margin-top: 15px;
  height: auto;
- max-width: 80%;
+ max-width: 60%;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
 }
 
 #rating_icon{
@@ -97,6 +99,24 @@ blockquote{
   border-style: solid;
   border-width: 5px;
   border-color: #26a69a;
+}
+
+#icon_left{
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 4px;
+  right: 6px;
+  color: #26a69a;
+}
+
+#table_border {
+  border-bottom-color: teal;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+span.uppercase{
+  text-transform: uppercase;
 }
 
 .tabs .tab a {
@@ -120,8 +140,6 @@ blockquote{
 } /*Color of underline*/
 
 
-/*Styling for Serach Box - obtained from CodePen https://codepen.io/huange/pen/rbqsD */
-
-
-
-/*End of styling of Serach Box */
+table.striped > tbody > tr > td{
+  background-color:#e7fffd;
+}
