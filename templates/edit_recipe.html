@@ -74,9 +74,9 @@
          
          <div class="input-field col s12 m6 l6">
            <i class="material-icons prefix">poll</i>
-            <select id="category" name="category">
+            <select id="main_ing" name="main_ing">
             <option value="" disabled selected>Choose A Main Ingredient</option>
-            {% for main_ing in main_ing %}
+            {% for main_ing in main_ings %}
                 {% if main_ing.main_ing == recipe.main_ing %} 
                 <option value="{{ main_ing.main_ing }}" selected>{{ main_ing.main_ing }}</option>
                 {% else %}
@@ -89,9 +89,9 @@
         
         <div class="input-field col s12 m6 l6">
            <i class="material-icons prefix">poll</i>
-            <select id="cuisine" name="cuisine">
+            <select id="serves" name="serves">
             <option value="" disabled selected>Choose How Many This Meal Serves</option>
-            {% for serves in serves %}
+            {% for serves in serving %}
             {% if serves.serves == recipe.serves %} 
                 <option value="{{ serves.serves }}" selected>{{ serves.serves }}</option>
                 {% else %}
