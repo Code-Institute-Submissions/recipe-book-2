@@ -137,6 +137,25 @@
       
       <div class="row">
         <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">sort</i>
+          {% for i in recipe.ingredients %}
+          {{ i["ing_name"] }}
+          <input id="ing_name" name="ing_name" type="text" class="validate" value="{{ ing_name }}">
+          {% endfor %}
+          <label for="name">Ingredients</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">image</i>
+          {% for i in recipe.method %}
+          {{ i["step"] }}
+          <input id="method" name="method" type="text" class="validate" value="{{ step }}">
+          {% endfor %}
+          <label for="image">Method</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">today</i>
           <input id="data_added" name="date_added" type="text" class="datepicker">
           <label for="date_added">Date Added (today)</label>
