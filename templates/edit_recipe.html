@@ -31,14 +31,6 @@
       
       <div class="row">
         <div class="input-field col s12 m12 l12">
-          <i class="material-icons prefix">sort</i>
-          <input id="description" name="description" type="text" class="validate" value="{{ recipe.description }}">
-          <label for="name">Recipe Description</label>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="input-field col s12 m12 l12">
           <i class="material-icons prefix">image</i>
           <input id="image" name="image" type="text" class="validate" value="{{ recipe.image }}">
           <span class="helper-text" data-error="Try again" data-success="Done">Paste an image address/url into this field</span>
@@ -51,6 +43,14 @@
           <i class="material-icons prefix">sort</i>
           <input id="name" name="name" type="text" class="validate" value="{{ recipe.name }}">
           <label for="name">Recipe Name</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">sort</i>
+          <input id="description" name="description" type="text" class="validate" value="{{ recipe.description }}">
+          <label for="name">Recipe Description</label>
         </div>
       </div>
       

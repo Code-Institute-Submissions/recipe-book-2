@@ -45,7 +45,7 @@ def edit_recipe(recipe_id):
 @app.route('/add_recipe')
 def add_recipe():
     return render_template("add_recipe.html",
-    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1), ratings=mongo.db.rating.find().sort("rating",1),
+    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1), ratings=mongo.db.ratings.find().sort("rating",1),
     difficulty=mongo.db.levels.find().sort("level",1),serving=mongo.db.serves.find().sort("level",1),main_ings=mongo.db.main_ing.find().sort("level",1))
 
 
@@ -76,7 +76,28 @@ def update_recipe(recipe_id):
         'rating':request.form['rating'],
         'level':request.form['level'],
         'date_added':request.form['date_added'],
-        'added_by':request.form['added_by']
+        'added_by':request.form['added_by'],
+        'ingredient_1':request.form['ingredient_1'],
+        'ingredient_2':request.form['ingredient_2'],
+        'ingredient_3':request.form['ingredient_3'],
+        'ingredient_4':request.form['ingredient_4'],
+        'ingredient_5':request.form['ingredient_5'],
+        'ingredient_6':request.form['ingredient_6'],
+        'ingredient_7':request.form['ingredient_7'],
+        'ingredient_8':request.form['ingredient_8'],
+        'ingredient_9':request.form['ingredient_9'],
+        'ingredient_10':request.form['ingredient_10'],
+        'method_1':request.form['method_1'],
+        'method_2':request.form['method_2'],
+        'method_3':request.form['method_3'],
+        'method_4':request.form['method_4'],
+        'method_5':request.form['method_5'],
+        'method_6':request.form['method_6'],
+        'method_7':request.form['method_7'],
+        'method_8':request.form['method_8'],
+        'method_9':request.form['method_9'],
+        'method_10':request.form['method_10']
+        
     })
     return redirect(url_for('recipes'))
 

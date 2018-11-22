@@ -24,13 +24,38 @@
     <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
       
       <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">image</i>
+          <input id="image" name="image" type="text" class="validate">
+          <span class="helper-text" data-error="Try again" data-success="Done">Paste an image address/url into this field</span>
+          <label for="image">Recipe Image URL</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">sort</i>
+          <input id="name" name="name" type="text" class="validate">
+          <label for="name">Recipe Name</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">sort</i>
+          <input id="description" name="description" type="text" class="validate">
+          <label for="name">Recipe Description</label>
+        </div>
+      </div>
+      
+      <div class="row">
          
          <div class="input-field col s12 m6 l6">
            <i class="material-icons prefix">poll</i>
             <select id="category" name="category">
             <option value="" disabled selected>Choose A Category</option>
             {% for category in categories %}
-            <option value="{{ category.category }}">{{ category.category }}</option>
+                <option value="{{ category.category }}">{{ category.category }}</option>
             {% endfor %}
           </select>
         <label>Category</label>
@@ -41,25 +66,59 @@
             <select id="cuisine" name="cuisine">
             <option value="" disabled selected>Choose A Cuisine Type</option>
             {% for cuisine in cuisines %}
-            <option value="{{ cuisine.cuisine }}">{{ cuisine.cuisine }}</option>
+                <option value="{{ cuisine.cuisine }}">{{ cuisine.cuisine }}</option>
             {% endfor %}
           </select>
         <label>Cuisine</label>
+        </div>
+      </div>
+      
+      <div class="row">
+         
+         <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="main_ing" name="main_ing">
+            <option value="" disabled selected>Choose A Main Ingredient</option>
+            {% for main_ing in main_ings %}
+                <option value="{{ main_ing.main_ing }}">{{ main_ing.main_ing }}</option>
+            {% endfor %}
+          </select>
+        <label>Main Ingredient</label>
+        </div>
+        
+        <div class="input-field col s12 m6 l6">
+           <i class="material-icons prefix">poll</i>
+            <select id="serves" name="serves">
+            <option value="" disabled selected>Choose How Many This Meal Serves</option>
+            {% for serves in serving %}
+                <option value="{{ serves.serves }}">{{ serves.serves }}</option>
+            {% endfor %}
+          </select>
+        <label>Serves</label>
         </div>
         
       </div>
       
       <div class="row">
         <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">description</i>
-          <input id="name" name="name" type="text" class="validate">
-          <label for="name">Recipe Name</label>
+          <i class="material-icons prefix">poll</i>
+          <select id="level" name="level">
+            <option value="" disabled selected>What level of difficulty in this meal?</option>
+            {% for level in difficulty %}
+                <option value="{{ level.level }}">{{ level.level }}</option>
+            {% endfor %}
+          </select>
+        <label>Difficulty</label>
         </div>
         <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">image</i>
-          <input id="image" name="image" type="text" class="validate">
-          <span class="helper-text" data-error="Try again" data-success="Done">Paste an image address/url into this field</span>
-          <label for="image">Recipe Image URL</label>
+          <i class="material-icons prefix">star</i>
+          <select id="rating" name="rating">
+            <option value="" disabled selected>What rating would you give this meal?</option>
+            {% for rating in ratings %}
+                <option value="{{ rating.rating }}">{{ rating.rating }}</option>
+            {% endfor %}
+          </select>
+        <label>Rating</label>
         </div>
       </div>
       
@@ -80,6 +139,142 @@
         </div>
       </div>
       
+      
+    <div class="container-fluid" id="edit_container">
+      <h5><i class="material-icons prefix" id="container_icon">receipt</i> Ingredients</h5><br>  
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_1" name="ingredient_1" type="text" class="validate">
+          <label for="name">Ingredient 1</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_2" name="ingredient_2" type="text" class="validate">
+          <label for="name">Ingredient 2</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_3" name="ingredient_3" type="text" class="validate">
+          <label for="name">Ingredient 3</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_4" name="ingredient_4" type="text" class="validate">
+          <label for="name">Ingredient 4</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_5" name="ingredient_5" type="text" class="validate">
+          <label for="name">Ingredient 5</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_6" name="ingredient_6" type="text" class="validate">
+          <label for="name">Ingredient 6</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_7" name="ingredient_7" type="text" class="validate">
+          <label for="name">Ingredient 7</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_8" name="ingredient_8" type="text" class="validate">
+          <label for="name">Ingredient 8</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_9" name="ingredient_9" type="text" class="validate">
+          <label for="name">Ingredient 9</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_10" name="ingredient_10" type="text" class="validate">
+          <label for="name">Ingredient 10</label>
+        </div>
+      </div>
+      
+    </div><br>
+        
+    <div class="container-fluid" id="edit_container">
+      <h5><i class="material-icons prefix" id="container_icon">receipt</i> Method</h5><br>  
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_1" name="method_1" type="text" class="validate">
+          <label for="name">Step 1</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_2" name="method_2" type="text" class="validate">
+          <label for="name">Step 2</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_3" name="method_3" type="text" class="validate">
+          <label for="name">Step 3</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_4" name="method_4" type="text" class="validate">
+          <label for="name">Step 4</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_5" name="method_5" type="text" class="validate">
+          <label for="name">Step 5</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_6" name="method_6" type="text" class="validate">
+          <label for="name">Step 6</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_7" name="method_7" type="text" class="validate">
+          <label for="name">Step 7</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_8" name="method_8" type="text" class="validate">
+          <label for="name">Step 8</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_9" name="method_9" type="text" class="validate">
+          <label for="name">Step 9</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_10" name="method_10" type="text" class="validate">
+          <label for="name">Step 10</label>
+        </div>
+      </div>
+      
+    </div><br>
+      
       <div class="row">
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">today</i>
@@ -87,13 +282,13 @@
           <label for="date_added">Date Added (today)</label>
         </div>
         <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">description</i>
-          <input id="name" name="name" type="text" class="validate">
-          <label for="name">Recipe Name</label>
+          <i class="material-icons prefix">account_circle</i>
+          <input id="added_by" name="added_by" type="text" class="validate">
+          <label for="name">Added By</label>
         </div>
       </div>
       
-      <button class="btn waves-effect waves-light pulse" type="submit" name="action">Add Recipe
+      <button class="btn waves-effect waves-light pulse" type="submit" name="action">Submit Changes
       <i class="material-icons right">playlist_add</i>
       </button>
     </form>
@@ -103,4 +298,3 @@
 </div>
    
 {% endblock %}
-
