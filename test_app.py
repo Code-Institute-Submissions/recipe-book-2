@@ -38,7 +38,7 @@ def view_recipe(recipe_id):
 def edit_recipe(recipe_id):
     this_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("edit_recipe.html", recipe=this_recipe,
-    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1), ratings=mongo.db.rating.find().sort("rating",1),
+    categories=mongo.db.categories.find().sort("category",1),cuisines=mongo.db.cuisines.find().sort("cuisine",1), ratings=mongo.db.ratings.find().sort("rating",1),
     difficulty=mongo.db.levels.find().sort("level",1),serving=mongo.db.serves.find().sort("level",1),main_ings=mongo.db.main_ing.find().sort("level",1))
 
     
@@ -73,7 +73,8 @@ def update_recipe(recipe_id):
         'cooking_time':request.form['cooking_time'],
         'main_ing':request.form['main_ing'],
         'serves':request.form['serves'],
-        # 'rating':request.form['rating'],
+        'rating':request.form['rating'],
+        'level':request.form['level'],
         'date_added':request.form['date_added'],
         'added_by':request.form['added_by']
     })

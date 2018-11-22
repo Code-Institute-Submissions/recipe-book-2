@@ -38,6 +38,23 @@
       </div>
       
       <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">image</i>
+          <input id="image" name="image" type="text" class="validate" value="{{ recipe.image }}">
+          <span class="helper-text" data-error="Try again" data-success="Done">Paste an image address/url into this field</span>
+          <label for="image">Recipe Image URL</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">sort</i>
+          <input id="name" name="name" type="text" class="validate" value="{{ recipe.name }}">
+          <label for="name">Recipe Name</label>
+        </div>
+      </div>
+      
+      <div class="row">
          
          <div class="input-field col s12 m6 l6">
            <i class="material-icons prefix">poll</i>
@@ -106,15 +123,32 @@
       
       <div class="row">
         <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">sort</i>
-          <input id="name" name="name" type="text" class="validate" value="{{ recipe.name }}">
-          <label for="name">Recipe Name</label>
+          <i class="material-icons prefix">poll</i>
+          <select id="level" name="level">
+            <option value="" disabled selected>What level of difficulty in this meal?</option>
+            {% for level in difficulty %}
+            {% if level.level == recipe.level %} 
+                <option value="{{ level.level }}" selected>{{ level.level }}</option>
+                {% else %}
+                <option value="{{ level.level }}">{{ level.level }}</option>
+                {% endif %}            
+            {% endfor %}
+          </select>
+        <label>Difficulty</label>
         </div>
         <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">image</i>
-          <input id="image" name="image" type="text" class="validate" value="{{ recipe.image }}">
-          <span class="helper-text" data-error="Try again" data-success="Done">Paste an image address/url into this field</span>
-          <label for="image">Recipe Image URL</label>
+          <i class="material-icons prefix">star</i>
+          <select id="rating" name="rating">
+            <option value="" disabled selected>What rating would you give this meal?</option>
+            {% for rating in ratings %}
+            {% if rating.rating == recipe.rating %} 
+                <option value="{{ rating.rating }}" selected>{{ rating.rating }}</option>
+                {% else %}
+                <option value="{{ rating.rating }}">{{ rating.rating }}</option>
+                {% endif %}            
+            {% endfor %}
+          </select>
+        <label>Rating</label>
         </div>
       </div>
       
@@ -135,24 +169,141 @@
         </div>
       </div>
       
+      
+    <div class="container-fluid" id="edit_container">
+      <h5><i class="material-icons prefix" id="container_icon">receipt</i> Ingredients</h5><br>  
+      
       <div class="row">
-        <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">sort</i>
-          {% for i in recipe.ingredients %}
-          {{ i["ing_name"] }}
-          <input id="ing_name" name="ing_name" type="text" class="validate" value="{{ ing_name }}">
-          {% endfor %}
-          <label for="name">Ingredients</label>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_1" name="ingredient_1" type="text" class="validate" value="{{ recipe.ingredient_1 }}">
+          <label for="name">Ingredient 1</label>
         </div>
-        <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">image</i>
-          {% for i in recipe.method %}
-          {{ i["step"] }}
-          <input id="method" name="method" type="text" class="validate" value="{{ step }}">
-          {% endfor %}
-          <label for="image">Method</label>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_2" name="ingredient_2" type="text" class="validate" value="{{ recipe.ingredient_2 }}">
+          <label for="name">Ingredient 2</label>
         </div>
       </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_3" name="ingredient_3" type="text" class="validate" value="{{ recipe.ingredient_3 }}">
+          <label for="name">Ingredient 3</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_4" name="ingredient_4" type="text" class="validate" value="{{ recipe.ingredient_4 }}">
+          <label for="name">Ingredient 4</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_5" name="ingredient_5" type="text" class="validate" value="{{ recipe.ingredient_5 }}">
+          <label for="name">Ingredient 5</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_6" name="ingredient_6" type="text" class="validate" value="{{ recipe.ingredient_6 }}">
+          <label for="name">Ingredient 6</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_7" name="ingredient_7" type="text" class="validate" value="{{ recipe.ingredient_7 }}">
+          <label for="name">Ingredient 7</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_8" name="ingredient_8" type="text" class="validate" value="{{ recipe.ingredient_8 }}">
+          <label for="name">Ingredient 8</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_9" name="ingredient_9" type="text" class="validate" value="{{ recipe.ingredient_9 }}">
+          <label for="name">Ingredient 9</label>
+        </div>
+        <div class="input-field col s12 m16 l6">
+          <input id="ingredient_10" name="ingredient_10" type="text" class="validate" value="{{ recipe.ingredient_10 }}">
+          <label for="name">Ingredient 10</label>
+        </div>
+      </div>
+      
+    </div><br>
+        
+    <div class="container-fluid" id="edit_container">
+      <h5><i class="material-icons prefix" id="container_icon">receipt</i> Method</h5><br>  
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_1" name="method_1" type="text" class="validate" value="{{ recipe.method_1 }}">
+          <label for="name">Step 1</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_2" name="method_2" type="text" class="validate" value="{{ recipe.method_2 }}">
+          <label for="name">Step 2</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_3" name="method_3" type="text" class="validate" value="{{ recipe.method_3 }}">
+          <label for="name">Step 3</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_4" name="method_4" type="text" class="validate" value="{{ recipe.method_4 }}">
+          <label for="name">Step 4</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_5" name="method_5" type="text" class="validate" value="{{ recipe.method_5 }}">
+          <label for="name">Step 5</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_6" name="method_6" type="text" class="validate" value="{{ recipe.method_6 }}">
+          <label for="name">Step 6</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_7" name="method_7" type="text" class="validate" value="{{ recipe.method_7 }}">
+          <label for="name">Step 7</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_8" name="method_8" type="text" class="validate" value="{{ recipe.method_8 }}">
+          <label for="name">Step 8</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_9" name="method_9" type="text" class="validate" value="{{ recipe.method_9 }}">
+          <label for="name">Step 9</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <input id="method_10" name="method_10" type="text" class="validate" value="{{ recipe.method_10 }}">
+          <label for="name">Step 10</label>
+        </div>
+      </div>
+      
+    </div><br>
       
       <div class="row">
         <div class="input-field col s12 m6 l6">

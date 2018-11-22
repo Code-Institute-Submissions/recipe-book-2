@@ -109,10 +109,24 @@ blockquote{
   color: #26a69a;
 }
 
+#container_icon{
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 4px;
+  right: 6px;
+  color: #26a69a;
+}
+
 #table_border {
   border-bottom-color: teal;
   border-bottom-style: solid;
   border-bottom-width: 1px;
+}
+
+#edit_container{
+  background-color: #D0E7E0;
+  padding:50px;
+  border-radius: 2%;
 }
 
 span.uppercase{

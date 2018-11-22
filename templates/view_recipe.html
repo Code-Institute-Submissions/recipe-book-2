@@ -47,17 +47,40 @@
                    
                     <tr id="table_border">
                       <th>Ingredient Name</th>
-                      <th>Measure</th>
                     </tr>
                   </thead>
 
                   <tbody>
-                     {% for i in recipe.ingredients %}
-                    <tr id="table_border">
-                      <td>{{ i["ing_name"] }}</td>
-                      <td>{{ i["measure"] }}</td>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_1 }}</td>
                     </tr>
-                    {% endfor %}
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_2 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_3 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_4 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_5 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_6 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_7 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_8 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_9 }}</td>
+                    </tr>
+                    <tr id="table_border" class="col s12">
+                      <td>{{ recipe.ingredient_10 }}</td>
+                    </tr>
                   </tbody>
                 </table>              
                 
@@ -65,7 +88,7 @@
         </div>
     <div id="tab2" class="col s12">
       <blockquote><strong>Method:</strong></blockquote>
-                {% for i in recipe.method %}
+      
                 <table class="striped">
                   <thead>
                     <tr>
@@ -75,11 +98,38 @@
 
                   <tbody>
                     <tr>
-                      <td><li>{{ i["step"] }}</li></td>
+                      <td><strong>Step 1: </strong><br>{{ recipe.method_1 }}</td>
                     </tr>
+                    <tr>
+                      <td><strong>Step 2: </strong><br>{{ recipe.method_2 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 3: </strong><br>{{ recipe.method_3 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 4: </strong><br>{{ recipe.method_4 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 5: </strong><br>{{ recipe.method_5 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 6: </strong><br>{{ recipe.method_6 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 7: </strong><br>{{ recipe.method_7 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 8: </strong><br>{{ recipe.method_8 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 9: </strong><br>{{ recipe.method_9 }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Step 10: </strong><br>{{ recipe.method_10 }}</td>
+                    </tr>
+                    
                   </tbody>
                 </table>                              
-                {% endfor %}</p>
       
     </div>
     
