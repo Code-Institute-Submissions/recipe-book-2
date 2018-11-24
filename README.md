@@ -126,10 +126,11 @@ In addition, you can clone or download the code from this GitHub repository.
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The details of the recipes was taken from https://www.bbcgoodfood.com
 
 ### Media
 - The photos used for the recipes were sourced from https://www.bbcgoodfood.com
+- Logo was created using https://logojoy.com
 
 ### Acknowledgements
 
