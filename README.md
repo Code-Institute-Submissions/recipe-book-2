@@ -40,7 +40,7 @@ The following collection is the main category within the database that holds all
 
 ![recipes](https://user-images.githubusercontent.com/28737216/48978327-08ee4000-f0a2-11e8-9107-60f417a5da23.png)
 
-Nested data had initially been used, but this was proving diffcult to manipulate throught standard CRUD operations (particularly creating and updating)  Previous set-up was as follows:
+Nested data had initially been used, but this was proving diffcult to manipulate through standard CRUD operations (particularly creating and updating)  Previous set-up was as follows:
 
 ~~~~
 "ingredients": [
