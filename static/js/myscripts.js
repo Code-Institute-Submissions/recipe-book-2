@@ -4,5 +4,6 @@ $('select').formSelect();
 $('.datepicker').datepicker();
 $('.tooltipped').tooltip();
 $('.collapsible').collapsible();
+$('.modal').modal();
 });
 

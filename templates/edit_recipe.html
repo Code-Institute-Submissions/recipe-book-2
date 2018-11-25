@@ -24,6 +24,117 @@
         </div>
 </div><br><br>
 
+  <div class="container">
+      <!--   New Category   -->
+      <div class="row">
+        
+        <div class="col s12 m4">
+          <div class="center icon-block">
+            <h2 class="center teal-text"><i class="material-icons">poll</i></h2>
+            <p class="center">Add a New Category Type</p>
+            
+          <!-- Modal Trigger -->
+          <a href="#modal1" class="btn-floating modal-trigger tooltipped data-position="bottom" data-tooltip="Add A New Category" btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>
+          </div>
+
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+            <form action="{{ url_for('insert_category') }}" method="POST" class="col s12">
+      
+            <div class="row">
+              <div class="input-field col s12 m12 l12">
+                <i class="material-icons prefix">poll</i>
+                <input id="category" name="category" type="text" class="validate">
+                <span class="helper-text" data-error="Try again" data-success="Done">New Category</span>
+                <label for="category">Type New Category Here</label>
+              </div>
+            </div>
+            
+            <div class="modal-footer">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">playlist_add</i>
+            </button>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!--   New Cuisine   -->
+      <div class="row">
+        
+        <div class="col s12 m4">
+          <div class="center icon-block">
+            <h2 class="center teal-text"><i class="material-icons">poll</i></h2>
+            <p class="center">Add a New Cuisine Type</p>
+            
+          <!-- Modal Trigger -->
+          <a href="#modal2" class="btn-floating modal-trigger tooltipped data-position="bottom" data-tooltip="Add A New Cuisine" btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>
+          </div>
+
+          <!-- Modal Structure -->
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+            <form action="{{ url_for('insert_cuisine') }}" method="POST" class="col s12">
+      
+            <div class="row">
+              <div class="input-field col s12 m12 l12">
+                <i class="material-icons prefix">poll</i>
+                <input id="cuisine" name="cuisine" type="text" class="validate">
+                <span class="helper-text" data-error="Try again" data-success="Done">New Cuisine</span>
+                <label for="cuisine">Type New Cuisine Here</label>
+              </div>
+            </div>
+            
+            <div class="modal-footer">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">playlist_add</i>
+            </button>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!--   New Main Ingredient   -->
+      <div class="row">
+        
+        <div class="col s12 m4">
+          <div class="center icon-block">
+            <h2 class="center teal-text"><i class="material-icons">poll</i></h2>
+            <p class="center">Add a New Main Ingredient</p>
+            
+          <!-- Modal Trigger -->
+          <a href="#modal3" class="btn-floating modal-trigger tooltipped data-position="bottom" data-tooltip="Add A New Main Ingredient" btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>
+          </div>
+
+          <!-- Modal Structure -->
+          <div id="modal3" class="modal">
+            <div class="modal-content">
+            <form action="{{ url_for('insert_main_ing') }}" method="POST" class="col s12">
+      
+            <div class="row">
+              <div class="input-field col s12 m12 l12">
+                <i class="material-icons prefix">poll</i>
+                <input id="main_ing" name="main_ing" type="text" class="validate">
+                <span class="helper-text" data-error="Try again" data-success="Done">Main Ingredient</span>
+                <label for="main_ing">Type New Main Ingredient  Here</label>
+              </div>
+            </div>
+            
+            <div class="modal-footer">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">playlist_add</i>
+            </button>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </div><br><br>
+
 <div class="container">
 
 <div class="row">
@@ -308,12 +419,12 @@
       <div class="row">
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">today</i>
-          <input id="data_added" name="date_added" type="text" class="datepicker">
+          <input id="data_added" name="date_added" type="text" class="datepicker" value="{{ recipe.date_added }}">
           <label for="date_added">Date Added (today)</label>
         </div>
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="added_by" name="added_by" type="text" class="validate">
+          <input id="added_by" name="added_by" type="text" class="validate" value="{{ recipe.added_by }}">
           <label for="name">Added By</label>
         </div>
       </div>
