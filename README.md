@@ -20,9 +20,52 @@ This website is for a range of people, from those who are looking for quick and 
 
 ### Data Schema:
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+The following shows the basic set-up of the MongoDB database, which is hosted on the cloud-based Mlab DaaS:
 
-![database_schema](https://user-images.githubusercontent.com/28737216/48314730-5f994b80-e5c5-11e8-9d8f-1f68f6d6f451.png)
+![mlab](https://user-images.githubusercontent.com/28737216/48978923-61760b00-f0ab-11e8-8a58-1016b8bc4819.png)
+
+The following categories are used for the drop-down/select menus throughout:
+
+| ![categories](https://user-images.githubusercontent.com/28737216/48978364-8ca82c80-f0a2-11e8-9c7e-7336369d0efd.png) | ![cuisines](https://user-images.githubusercontent.com/28737216/48978368-9d58a280-f0a2-11e8-9ea1-2b2759481d1c.png) | ![main_ing](https://user-images.githubusercontent.com/28737216/48978395-fa545880-f0a2-11e8-8c8a-eed2f5d0d7a1.png)
+|:---:|:---:|:---:|
+| categories | cuisines | main_ing |
+
+The following categories would ideally be implemented through nested Arrays, but to simply the data structure and avoid the need for inserting and editing into a nested data, this approach was adopted:
+
+| ![levels](https://user-images.githubusercontent.com/28737216/48978901-fcbab080-f0aa-11e8-87ae-9929298e5e71.png) | ![ratings](https://user-images.githubusercontent.com/28737216/48978905-0a703600-f0ab-11e8-88f2-7b7574d27b85.png) | ![serves](https://user-images.githubusercontent.com/28737216/48978909-14923480-f0ab-11e8-9408-2b1948c72eb0.png)
+|:---:|:---:|:---:|
+| levels | ratings | serves |
+
+The following category is the main category within the database that holds all the Recipe records/documents:
+
+![recipes](https://user-images.githubusercontent.com/28737216/48978327-08ee4000-f0a2-11e8-9107-60f417a5da23.png)
+
+Nested data had initially been used, but this was proving diffcult to manipulate throught standard CRUD operations (particularly creating and updating)  Previous set-up was as follows:
+
+~~~~
+"ingredients": [
+        {
+            "ing_name": "white wine vinegar",
+            "measure": "3 tbsp"
+        },
+        {
+            "ing_name": "large free range eggs",
+            "measure": "x 4"
+        },
+        {
+            "ing_name": "toasting muffins",
+            "measure": "x 2"
+        },
+        {
+            "ing_name": "batch hot hollandaise sauce",
+            "measure": "x 1"
+        },
+        {
+            "ing_name": "Parma ham (or Serrano or Bayonne)",
+            "measure": "4 slices"
+        }
+    ],  
+~~~~
 
 ### Wireframes / Mockups:
 
