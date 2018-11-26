@@ -35,12 +35,12 @@
             
           <!-- Modal Trigger -->
           <a href="#modal1" class="btn-floating modal-trigger tooltipped data-position="bottom" data-tooltip="Add A New Category" btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>
-          </div>
+          </div><br><hr>
 
           <!-- Modal Structure -->
           <div id="modal1" class="modal">
             <div class="modal-content">
-            <form action="{{ url_for('insert_category') }}" method="POST" class="col s12">
+            <form action="{{ url_for('insert_category_edit')}}" method="POST" class="col s12">
       
             <div class="row">
               <div class="input-field col s12 m12 l12">
@@ -71,12 +71,12 @@
             
           <!-- Modal Trigger -->
           <a href="#modal2" class="btn-floating modal-trigger tooltipped data-position="bottom" data-tooltip="Add A New Cuisine" btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>
-          </div>
+          </div><br><hr>
 
           <!-- Modal Structure -->
           <div id="modal2" class="modal">
             <div class="modal-content">
-            <form action="{{ url_for('insert_cuisine') }}" method="POST" class="col s12">
+            <form action="{{ url_for('insert_cuisine_edit') }}" method="POST" class="col s12">
       
             <div class="row">
               <div class="input-field col s12 m12 l12">
@@ -107,12 +107,12 @@
             
           <!-- Modal Trigger -->
           <a href="#modal3" class="btn-floating modal-trigger tooltipped data-position="bottom" data-tooltip="Add A New Main Ingredient" btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>
-          </div>
+          </div><br><hr>
 
           <!-- Modal Structure -->
           <div id="modal3" class="modal">
             <div class="modal-content">
-            <form action="{{ url_for('insert_main_ing') }}" method="POST" class="col s12">
+            <form action="{{ url_for('insert_main_ing_edit') }}" method="POST" class="col s12">
       
             <div class="row">
               <div class="input-field col s12 m12 l12">
@@ -136,6 +136,7 @@
       </div>
 
     </div>
+  </div>
   </div><br><br>
 
 <div class="container">

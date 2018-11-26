@@ -118,7 +118,7 @@ blockquote{
 }
 
 #table_border {
-  border-bottom-color: teal;
+  border-bottom-color: #26a69a;
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
@@ -127,6 +127,11 @@ blockquote{
   background-color: #D0E7E0;
   padding:50px;
   border-radius: 2%;
+}
+
+hr{
+  border-color: #26a69a;
+  border-width: 0.5px;
 }
 
 span.uppercase{
