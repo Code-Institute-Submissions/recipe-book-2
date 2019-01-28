@@ -101,6 +101,56 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('recipes'))
 
+@app.route("/search_submit", methods=["POST"])
+def search_submit():
+    if request.form['action'] == 'search':
+        searchTerm = request.form['search']
+        return redirect(url_for('search', searchTerm=searchTerm))
+        
+@app.route("/search/<searchTerm>", methods=["GET", "POST"])
+def search(searchTerm):
+    mongo.db.recipes.create_index([('name', 'text')])
+    query = ( { "$text": { "$search": searchTerm } } )
+    results = mongo.db.recipes.find(query)
+    return render_template("search_results.html", recipes=results)
+    
+
+@app.route('/insert_category_edit', methods=['POST'])
+def insert_category_edit():
+    category = mongo.db.categories
+    category.insert_one(request.form.to_dict())
+    return redirect(url_for('recipes'))
+
+@app.route('/insert_cuisine_edit', methods=['POST'])
+def insert_cuisine_edit():
+    cuisine = mongo.db.cuisines
+    cuisine.insert_one(request.form.to_dict())
+    return redirect(url_for('recipes'))
+    
+@app.route('/insert_main_ing_edit', methods=['POST'])
+def insert_main_ing_edit():
+    main_ing = mongo.db.main_ing
+    main_ing.insert_one(request.form.to_dict())
+    return redirect(url_for('recipes'))
+
+@app.route('/insert_category_add', methods=['POST'])
+def insert_category_add():
+    category = mongo.db.categories
+    category.insert_one(request.form.to_dict())
+    return redirect(url_for('add_recipe'))
+
+@app.route('/insert_cuisine_add', methods=['POST'])
+def insert_cuisine_add():
+    cuisine = mongo.db.cuisines
+    cuisine.insert_one(request.form.to_dict())
+    return redirect(url_for('add_recipe'))
+
+@app.route('/insert_main_ing_add', methods=['POST'])
+def insert_main_ing_add():
+    main_ing = mongo.db.main_ing
+    main_ing.insert_one(request.form.to_dict())
+    return redirect(url_for('add_recipe'))
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
