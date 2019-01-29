@@ -22,8 +22,11 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/recipes')
+@app.route('/recipes', methods=["POST"])
 def recipes():
+    if request.method == "POST":
+        searchTerm = request.form['search']
+        return redirect(url_for('search', searchTerm=searchTerm))
     return render_template("recipes.html", 
     recipes=mongo.db.recipes.find())
 
@@ -100,20 +103,6 @@ def update_recipe(recipe_id):
         
     })
     return redirect(url_for('recipes'))
-
-@app.route("/search_submit", methods=["POST"])
-def search_submit():
-    if request.form['action'] == 'search':
-        searchTerm = request.form['search']
-        return redirect(url_for('search', searchTerm=searchTerm))
-        
-@app.route("/search/<searchTerm>", methods=["GET", "POST"])
-def search(searchTerm):
-    mongo.db.recipes.create_index([('name', 'text')])
-    query = ( { "$text": { "$search": searchTerm } } )
-    results = mongo.db.recipes.find(query)
-    return render_template("search_results.html", recipes=results)
-    
 
 @app.route('/insert_category_edit', methods=['POST'])
 def insert_category_edit():
