@@ -22,7 +22,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/recipes', methods=["POST"])
+@app.route('/recipes', methods=['GET', 'POST'])
 def recipes():
     if request.method == "POST":
         searchTerm = request.form['search']
@@ -62,7 +62,7 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('recipes'))
     
-@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.update( {'_id': ObjectId(recipe_id)},
@@ -103,6 +103,15 @@ def update_recipe(recipe_id):
         
     })
     return redirect(url_for('recipes'))
+
+
+@app.route("/search/<searchTerm>", methods=['GET', 'POST'])
+def search(searchTerm):
+    mongo.db.recipes.create_index([('name', 'text')])
+    query = ( { "$text": { "$search": searchTerm } } )
+    results = mongo.db.recipes.find(query)
+    return render_template("search_results.html", recipes=results)
+    
 
 @app.route('/insert_category_edit', methods=['POST'])
 def insert_category_edit():
