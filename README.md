@@ -178,3 +178,4 @@ In addition, you can clone or download the code from this GitHub repository.
 ### Acknowledgements
 
 - I received inspiration for this project from https://myfoodbook.com.au and https://www.bbcgoodfood.com
+- I would also like to acknowledge and thank Heather Olcot (@Heather) who was of grateful assistance on getting the Search function to  work.  Without her help, I may have never figured it out!
