@@ -96,16 +96,27 @@ The following are the initial mockups, based on the Materialize *Parallax* templ
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+The main features of the application are the following:
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- View full list of all recipes contained in the database
+- Search Function to allow users to search recipes containing specfic words (e.g. chicken)
+  - Funciton to allow users to Reset the search function and return them to the full list of recipes
+- Users are currently allowed to edit recipes (in full implementation this would require user registration / login)
+- Users are currently allowed to add recipes (in full implementation this would require user registration / login)
+  - When adding new recipes / editing recipes users can also add New Categories / Cuisine Types / Main Ingredients
 
-### Features Left to Implement
-- Another feature idea
+### Features Left to Implement / Issues
 
+Ideally, User Registration would be used on such an application for the CRUD operations within the database.  This would require Account Authentication / Login functionaility also
+
+Full form validation would also be required to prevent users from ommiting required data.
+
+Another issue noted is the fact that if a user wishes to add a New Category / Cuisine Type / Main Ingredient, then they must do so before they begin adding/editing current attributes of a recipe (as the page will refresh and any new/amended data will not be committed to the database)
+
+When the responsiveness was tested on certain phones, the "Get Started" button on the Index page would not be displayed.
+
+Lastly, there were issues with using nested data within some records, which required a change of approach to the data schema.
 
 ## Technologies used
 
@@ -129,23 +140,21 @@ Technologies used in this project include:
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+Mainly manual testing used throughout - for routing and checking if data is properly rendered in the correct template and format, "test_app.py" was used, whereby on satisfactory completion, the clean functional code would then be transferred to the "app.py" file
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+Basic testing included:
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+- DB Connection
+- Editing Recipes
+- Adding Recipes
+- Adding new Categories / Main Ingredients / Cuisine Type
+- Rendering data / images
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+Many GitHub commits will contain the prefix `TESTING`
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+Pep 8 was used to assist with cleaning the data - indentation, whitespaces, non-spaces, 2 lines expected
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+http://pep8online.com/
 
 ## Deployment
 
