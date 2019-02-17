@@ -106,13 +106,15 @@ The main features of the application are the following:
 - Users are currently allowed to add recipes (in full implementation this would require user registration / login)
   - When adding new recipes / editing recipes users can also add New Categories / Cuisine Types / Main Ingredients
 
-### Features Left to Implement
+### Features Left to Implement / Issues
 
 Ideally, User Registration would be used on such an application for the CRUD operations within the database.  This would require Account Authentication / Login functionaility also
 
 Full form validation would also be required to prevent users from ommiting required data.
 
 Another issue noted is the fact that if a user wishes to add a New Category / Cuisine Type / Main Ingredient, then they must do so before they begin adding/editing current attributes of a recipe (as the page will refresh and any new/amended data will not be committed to the database)
+
+When the responsiveness was tested on certain phones, the "Get Started" button on the Index page would not be displayed.
 
 Lastly, there were issues with using nested data within some records, which required a change of approach to the data schema.
 
